@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<head>
+    <style>
+        body {
+        background-color: #48C9B0;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcBWrn3HKc0nIZ4KCgOESt3Qq3_B2N1vPZYA&usqp=CAU"),
+    url("https://t3.ftcdn.net/jpg/02/74/21/22/240_F_274212271_D13cWOlhpJ3XeQfKSMGpB1zkVriaMzhQ.jpg"),
+    url("https://t3.ftcdn.net/jpg/02/31/82/04/240_F_231820456_WhsrQABcZydYVS6Utgp5MRkFaDKhtu6F.jpg"),
+    url("https://t3.ftcdn.net/jpg/05/77/71/58/240_F_577715861_Mlj1d0Q3YCkutIURm2lfNEuiNIJBHrPU.jpg");
+  background-position:
+    top left,
+    top right,
+    bottom left,
+    bottom right;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+        }
+        h1 {
+  text-align: center;
+}
+    </style>
+    <title>Stress Levels</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body >
+<div class="container mt-5">
+    <h1>HRV & STRESS ANALYSIS REPORT</h1>
+   <h3>User Information</h3>
+    <p>Name: {{ name }}</p>
+    <p>Age: {{ age }}</p>
+    <p>Gender: {{ gender }}</p>
+   <div align="left">
+            <table>
+                <h1>
+                <!--Displaying the converted table-->
+                     {% for table in tables %}
+                    <h3>{{titles[loop.index]}}</h3>
+                    {{ table|safe }}
+                    {% endfor %}
+                </h1>
+            </table>
+        </div>
+    <div id="chart" class="chart"></div>
+
+</div>
+    </body>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graphs = {{graphJSON | safe}};
+    Plotly.plot('chart',graphs,{});
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <meta charset="UTF-8">
+  <head>
+	  <style>
+  body {
+    background-color: #FFFFFF;
+    background-image: url("https://img.freepik.com/free-vector/gradient-world-mental-health-day-background_23-2149604961.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  h1 {
+  text-align: center;
+}
+</style>
+  <title>User Information Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Enter your information:</h1>
+
+    <form action="{{url_for('upload') }}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" class="form-control" id="name" name="name" required>
+			</div>
+			<div class="form-group">
+				<label for="age">Age:</label>
+				<input type="number" class="form-control" id="age" name="age" required>
+			</div>
+			<div class="form-group">
+				<label for="gender">Gender:</label>
+				<select class="form-control" id="gender" name="gender" required>
+					<option value="">Select</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+					<option value="Other">Other</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="file">Upload your IBI file in csv format!</label>
+    <input type="file"  class="form-control-file" id="file" name="file" accept=".csv" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>
+
